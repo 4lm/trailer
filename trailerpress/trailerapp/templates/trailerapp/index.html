@@ -1,0 +1,25 @@
+{% extends 'trailerapp/base.html' %}
+{% load icons %}
+
+
+{% block title %}
+    {{ page_title }}
+{% endblock %}
+
+{% block content %}
+    <h2>Trailer</h2>
+    <table class="table table-striped table-bordered">
+        <tr>
+            <th>Film</th>
+            <th>Trailer</th>
+            <th>Vote</th>
+        </tr>
+        {% for film in films %}
+            <tr>
+                <td>{{ film.title }}</td>
+                <td>{{ film.trailer_set.all|join:', ' }}</td>
+                <td>{% icon 'star' %}</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
