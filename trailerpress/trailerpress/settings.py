@@ -31,6 +31,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'trailerapp.apps.TrailerappConfig',
+    'bootstrap4',
+    'django_icons',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
