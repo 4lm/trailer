@@ -1,5 +1,15 @@
 from django.contrib import admin
 from .models import Film, Trailer
 
-admin.site.register(Film)
-admin.site.register(Trailer)
+
+class TrailerAdmin(admin.ModelAdmin):
+    list_display = ['title', 'film']
+
+class TrailerInline(admin.StackedInline):
+    model = Trailer
+
+class FilmAdmin(admin.ModelAdmin):
+    inlines = [TrailerInline]
+
+admin.site.register(Film, FilmAdmin)
+admin.site.register(Trailer, TrailerAdmin)
