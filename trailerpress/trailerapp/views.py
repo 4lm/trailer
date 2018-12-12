@@ -1,7 +1,13 @@
 from django.shortcuts import render
+from django.views.generic.list import ListView
 from .models import Film
 
-def index(request):
-    films = Film.objects.all().order_by('title')
 
-    return render(request, 'trailerapp/index.html', {'page_title': 'TrailerPress', 'films': films})
+class FilmIndexListView(ListView):
+    model = Film
+    paginate_by = 5
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['page_title'] = 'TrailerPress'
+        return context

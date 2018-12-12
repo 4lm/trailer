@@ -3,5 +3,5 @@ from . import views
 
 app_name = 'trailerapp'
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('', views.FilmIndexListView.as_view(), name='film-list'),
 ]

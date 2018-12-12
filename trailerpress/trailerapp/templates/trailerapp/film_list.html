@@ -14,11 +14,17 @@
             <th>Trailer</th>
             <th>Vote</th>
         </tr>
-        {% for film in films %}
+        {% for film in object_list %}
             <tr>
                 <td>{{ film.title }}</td>
                 <td>{{ film.trailer_set.all|join:', ' }}</td>
-                <td>{% icon 'star' %}</a></td>
+                <td>{% icon 'star' %}</td>
+            </tr>
+        {% empty %}
+            <tr>
+                <td>No films yet.</td>
+                <td>No films yet.</td>
+                <td>No films yet.</td>
             </tr>
         {% endfor %}
     </table>
