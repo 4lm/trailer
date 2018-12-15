@@ -4,6 +4,9 @@ Django app for watching the latest trailers.
 
 [This project is in early stages]
 
+master branch: [![Build Status](https://travis-ci.com/4lm/trailerpress.svg?branch=master)](https://travis-ci.com/4lm/trailerpress) [![Coverage Status](https://coveralls.io/repos/github/4lm/trailerpress/badge.svg?branch=master)](https://coveralls.io/github/4lm/trailerpress?branch=master) \
+develop branch: [![Build Status](https://travis-ci.com/4lm/trailerpress.svg?branch=develop)](https://travis-ci.com/4lm/trailerpress) [![Coverage Status](https://coveralls.io/repos/github/4lm/trailerpress/badge.svg?branch=develop)](https://coveralls.io/github/4lm/trailerpress?branch=develop)
+
 ## Installation
 
 [This installation manual was tested with a GNU/Linux operating system (Ubuntu 18.04) and might be adjusted for usage with other operating systems]
@@ -32,10 +35,6 @@ source venv/bin/activate
 - Install project requirements via pip:
 ```
 pip install -r requirements.txt
-```
-- CD into the django project folder (/path/to/project/trailerpress/trailerpress/):
-```
-cd trailerpress
 ```
 - Migrate project:
 ```
