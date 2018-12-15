@@ -7,6 +7,7 @@ class FilmIndexListView(ListView):
     template_name = 'trailerapp/home.html'
     context_object_name = 'films'
     paginate_by = 5
+    ordering = ['title']
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
