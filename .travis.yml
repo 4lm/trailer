@@ -6,3 +6,5 @@ install:
 script:
   - cd trailerpress
   - python manage.py test
+after_success:
+    - coveralls
