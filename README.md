@@ -4,8 +4,8 @@ Django app for watching the latest trailers.
 
 [This project is in early stages]
 
-master branch: [![Build Status](https://travis-ci.com/4lm/trailerpress.svg?branch=master)](https://travis-ci.com/4lm/trailerpress) \
-develop branch: [![Build Status](https://travis-ci.com/4lm/trailerpress.svg?branch=develop)](https://travis-ci.com/4lm/trailerpress)
+master branch: [![Build Status](https://travis-ci.com/4lm/trailerpress.svg?branch=master)](https://travis-ci.com/4lm/trailerpress) [![Coverage Status](https://coveralls.io/repos/github/4lm/trailerpress/badge.svg?branch=master)](https://coveralls.io/github/4lm/trailerpress?branch=master) \
+develop branch: [![Build Status](https://travis-ci.com/4lm/trailerpress.svg?branch=develop)](https://travis-ci.com/4lm/trailerpress) [![Coverage Status](https://coveralls.io/repos/github/4lm/trailerpress/badge.svg?branch=develop)](https://coveralls.io/github/4lm/trailerpress?branch=develop)
 
 ## Installation
 
