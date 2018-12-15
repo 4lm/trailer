@@ -1,5 +1,5 @@
 [run]
 omit =
-    /home/*
+    /home/travis/virtualenv/*
     venv/*
     manage.py
