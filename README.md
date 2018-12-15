@@ -36,10 +36,6 @@ source venv/bin/activate
 ```
 pip install -r requirements.txt
 ```
-- CD into the django project folder (/path/to/project/trailerpress/trailerpress/):
-```
-cd trailerpress
-```
 - Migrate project:
 ```
 python manage.py migrate
