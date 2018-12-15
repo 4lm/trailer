@@ -4,6 +4,9 @@ Django app for watching the latest trailers.
 
 [This project is in early stages]
 
+master branch: [![Build Status](https://travis-ci.com/4lm/trailerpress.svg?branch=master)](https://travis-ci.com/4lm/trailerpress) \
+develop branch: [![Build Status](https://travis-ci.com/4lm/trailerpress.svg?branch=develop)](https://travis-ci.com/4lm/trailerpress)
+
 ## Installation
 
 [This installation manual was tested with a GNU/Linux operating system (Ubuntu 18.04) and might be adjusted for usage with other operating systems]
