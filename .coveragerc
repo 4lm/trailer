@@ -1,4 +1,5 @@
 [run]
 omit =
+    home/*
     venv/*
     manage.py
