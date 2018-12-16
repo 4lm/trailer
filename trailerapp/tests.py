@@ -1,12 +1,12 @@
 from django.test import Client, TestCase
-from .models import Film, Trailer
+from .models import Film, Genre, Trailer
 from .views import FilmIndexListView
 from uuid import uuid4
 
 
 class FilmModelTests(TestCase):
     '''
-        FilmModel tests.
+        Film model tests.
     '''
 
     def test_str(self):
@@ -20,7 +20,7 @@ class FilmModelTests(TestCase):
 
 class TrailerModelTests(TestCase):
     '''
-        TrailerModel tests.
+        Trailer model tests.
     '''
 
     def test_str(self):
@@ -30,6 +30,17 @@ class TrailerModelTests(TestCase):
         uuid = uuid4()
         test_trailer = Trailer(title=uuid)
         self.assertEqual(test_trailer.__str__(), uuid)
+
+
+class GenreModelTests(TestCase):
+    '''
+        Genre model tests.
+    '''
+
+    def test_str(self):
+        uuid = uuid4()
+        test_genre = Genre(name=uuid)
+        self.assertEqual(test_genre.__str__(), uuid)
 
 
 class FilmIndexListViewTests(TestCase):
