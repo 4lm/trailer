@@ -1,0 +1,31 @@
+{% extends 'trailerapp/base.html' %}
+{% load icons %}
+
+
+{% block title %}
+    {{ page_title }}
+{% endblock %}
+
+{% block content %}
+    <form method="get">
+        <p>Save now playing movies to the database.</p>
+        <button type="submit" value="click" name="get-btn">Check & Save</button>
+    </form>
+    {% if films.results %}
+        <p>Following movies and trailers have been saved to the database.</p>
+        <table class="table table-striped table-bordered">
+            {% for film in films.results %}
+                {% if film.videos_results %}
+                    <h2>{{ film.title }}</h2>
+                    <p>
+                    <div>Id: {{ film.id }}</div>
+                    <div>Original Title: {{ film.original_title }}</div>
+                    <div>Release Date: {{ film.release_date }}</div>
+                    </p>
+                    <p>Synopsis: {{ film.overview }}</p>
+                    <p>Videos: {{ film.videos_results }}</p>
+                {% endif %}
+            {% endfor %}
+        </table>
+    {% endif %}
+{% endblock %}

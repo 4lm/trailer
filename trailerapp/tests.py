@@ -1,12 +1,16 @@
-from django.test import Client, TestCase
-from .models import Film, Trailer
-from .views import FilmIndexListView
+from unittest import mock
 from uuid import uuid4
+
+from django.test import Client, TestCase
+
+from trailerpress.settings import API_KEY, LANGUAGE, REGION
+from .models import Film, Genre, Trailer
+from .views import FilmIndexListView
 
 
 class FilmModelTests(TestCase):
     '''
-        FilmModel tests.
+        Film model tests.
     '''
 
     def test_str(self):
@@ -20,7 +24,7 @@ class FilmModelTests(TestCase):
 
 class TrailerModelTests(TestCase):
     '''
-        TrailerModel tests.
+        Trailer model tests.
     '''
 
     def test_str(self):
@@ -30,6 +34,17 @@ class TrailerModelTests(TestCase):
         uuid = uuid4()
         test_trailer = Trailer(title=uuid)
         self.assertEqual(test_trailer.__str__(), uuid)
+
+
+class GenreModelTests(TestCase):
+    '''
+        Genre model tests.
+    '''
+
+    def test_str(self):
+        uuid = uuid4()
+        test_genre = Genre(name=uuid)
+        self.assertEqual(test_genre.__str__(), uuid)
 
 
 class FilmIndexListViewTests(TestCase):
@@ -63,4 +78,15 @@ class FilmIndexListViewTests(TestCase):
 
     def test_film_index_ordering(self):
         film_index = FilmIndexListView()
-        self.assertEqual(film_index.ordering[0], 'title')
+        self.assertEqual(film_index.ordering[0], '-release_date')
+
+
+class ServicesTests(TestCase):
+    '''
+        Tests for functions in services.py
+    '''
+
+    @mock.patch('trailerapp.services.get_data', return_value=42)
+    def test_get_data(self, mocked_get_data):
+        a, l, p, r = API_KEY, LANGUAGE, 1, REGION
+        self.assertEqual(mocked_get_data(a, l, p, r), 42)
