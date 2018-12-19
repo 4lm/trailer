@@ -74,4 +74,4 @@ class FilmIndexListViewTests(TestCase):
 
     def test_film_index_ordering(self):
         film_index = FilmIndexListView()
-        self.assertEqual(film_index.ordering[0], 'title')
+        self.assertEqual(film_index.ordering[0], '-release_date')
