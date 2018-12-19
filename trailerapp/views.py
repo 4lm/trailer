@@ -5,7 +5,7 @@ from django.views.generic.list import ListView
 from .models import Film, Trailer
 from .services import get_data
 import datetime
-from trailerpress.settings import API_KEY
+from trailerpress.settings import API_KEY, LANGUAGE, REGION
 
 
 class FilmIndexListView(ListView):
@@ -26,9 +26,9 @@ def playing(request):
     films = {}
     if request.GET.get('get-btn'):
         api_key = API_KEY
-        language = 'de'
+        language = LANGUAGE
         page = 1
-        region = 'DE'
+        region = REGION
         films['results'] = get_data(api_key, language, page, region)
         for film_result in films['results']:
             if len(film_result['videos_results']) is not 0:
