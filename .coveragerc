@@ -1,5 +1,9 @@
-[run]
+[report]
 omit =
     /home/travis/virtualenv/*
     venv/*
     manage.py
+exclude_lines =
+    def get_data
+    def playing
+
