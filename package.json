@@ -1,0 +1,24 @@
+{
+  "name": "trailerpress",
+  "version": "1.0.0",
+  "description": "Django app for watching the latest trailers.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "./build.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/4lm/trailerpress.git"
+  },
+  "author": "Alexis Michaltsis",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/4lm/trailerpress/issues"
+  },
+  "homepage": "https://github.com/4lm/trailerpress#readme",
+  "devDependencies": {
+    "video.js": "^7.3.0",
+    "videojs-youtube": "^2.6.0"
+  }
+}
