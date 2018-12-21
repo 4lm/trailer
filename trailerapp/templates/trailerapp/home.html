@@ -14,9 +14,21 @@
                     <p>
                         <small>{{ film.release_date }}</small>
                     </p>
-                    <p>
-                        {{ film.overview }}
-                    </p>
+                    <video
+                            id="{{ film.trailer_set.first.site_key }}"
+                            class="video-js vjs-default-skin"
+                            controls
+                            width="640"
+                            height="264"
+                            data-setup='{
+                                "techOrder": ["youtube"],
+                                "sources": [{
+                                    "type": "video/youtube",
+{#                                    "src": "https://www.youtube.com/watch?v={{ film.trailer_set.first.site_key }}"#}
+                                    "src": "https://www.youtube.com/embed/{{ film.trailer_set.first.site_key }}?rel=0"
+                                }]
+                            }'
+                    ></video>
                 </div>
             {% endfor %}
         </div>
