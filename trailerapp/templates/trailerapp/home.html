@@ -14,8 +14,8 @@
                     <small>{{ film.release_date }}</small>
                 </p>
                 <video
-                        id="{{ film.trailer_set.first.site_key }}"
-                        class="video-js vjs-default-skin"
+                        id="yt-{{ film.trailer_set.first.site_key }}"
+                        class="video-js vjs-default-skin vjs-big-play-centered"
                         controls
                         width="640"
                         height="264"
@@ -23,7 +23,7 @@
                                 "techOrder": ["youtube"],
                                 "sources": [{
                                     "type": "video/youtube",
-                                    "src": "https://www.youtube.com/embed/{{ film.trailer_set.first.site_key }}?rel=0"
+                                    "src": "https://www.youtube.com/embed/{{ film.trailer_set.first.site_key }}"
                                 }]
                             }'
                 ></video>
