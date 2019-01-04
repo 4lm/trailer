@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'trailerapp.apps.TrailerappConfig',
     'bootstrap4',
     'django_icons',
+    'star_ratings',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
