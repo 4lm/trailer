@@ -28,22 +28,21 @@
                                 }]
                             }'
                 ></video>
-            </div>
-            <div>
-                <button class="btn btn-outline-dark" type="button" data-toggle="collapse"
-                        data-target="#collapse-{{ film.tmdb_id }}"
-                        aria-expanded="false" aria-controls="collapse-{{ film.tmdb_id }}">
-                    Synopsis
-                </button>
-            </div>
-
-            <div class="collapse" id="collapse-{{ film.tmdb_id }}">
-                <div class="card card-body">
-                    {{ film.overview }}
+                <div>
+                    <button class="btn btn-outline-dark" type="button" data-toggle="collapse"
+                            data-target="#collapse-{{ film.tmdb_id }}"
+                            aria-expanded="false" aria-controls="collapse-{{ film.tmdb_id }}">
+                        Synopsis
+                    </button>
                 </div>
-            </div>
-            <div>{% ratings film %}</div>
 
+                <div class="collapse" id="collapse-{{ film.tmdb_id }}">
+                    <div class="card card-body">
+                        {{ film.overview }}
+                    </div>
+                </div>
+                <div>{% ratings film %}</div>
+            </div>
         {% endfor %}
         {% if is_paginated %}
             {% if page_obj.has_previous %}
