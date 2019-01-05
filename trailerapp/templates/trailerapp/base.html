@@ -24,7 +24,7 @@
 <header class="site-header">
     <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
         <div class="container">
-            <a class="navbar-brand mr-4" href="{% url 'trailerapp:film-list' %}">{{ page_title }}</a>
+            <a class="navbar-brand mr-4" href="{% url 'trailerapp:film-list' %}">TrailerPress</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle"
                     aria-controls="navbarToggle"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -42,7 +42,7 @@
                         <a class="nav-item nav-link" href="#">Logout</a>
                     {% else %}
                         <a class="nav-item nav-link" href="#">Login</a>
-                        <a class="nav-item nav-link" href="#">Register</a>
+                        <a class="nav-item nav-link" href="{% url 'trailerapp:register' %}">Register</a>
                     {% endif %}
                 </div>
             </div>

@@ -1,7 +1,9 @@
+from django.contrib import messages
 from django.contrib.auth.decorators import user_passes_test
 from django.db import IntegrityError
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.views.generic.list import ListView
+from .forms import UserRegisterForm
 from .models import Film, Trailer
 from .services import get_data
 import datetime
@@ -67,3 +69,16 @@ def playing(request):
                             print(e)
                             pass
     return render(request, 'trailerapp/playing.html', {'films': films, 'page_title': 'Now Playing'})
+
+
+def register(request):
+    if request.method == 'POST':
+        form = UserRegisterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            messages.success(request, 'Account for {} has been created! You are now able to log in'.format(username))
+            return redirect('trailerapp:film-list')
+    else:
+        form = UserRegisterForm()
+    return render(request, 'trailerapp/register.html', {'form': form})

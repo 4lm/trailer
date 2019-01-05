@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'trailerapp.apps.TrailerappConfig',
     'bootstrap4',
+    'crispy_forms',
     'django_icons',
     'star_ratings',
     'django.contrib.admin',
