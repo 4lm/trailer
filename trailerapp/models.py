@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from PIL import Image
 
 
 class Genre(models.Model):
@@ -58,3 +59,28 @@ class Profile(models.Model):
         return '{} Profile'.format(self.user.username)
 
     __repr__ = __str__
+
+    def save(self):
+        super().save()
+
+        img = Image.open(self.image.path)
+        max_width, max_height = 300, 300
+
+        if img.height > max_height or img.width > max_width:
+            if img.height >= img.width:
+                aspect_ratio = img.height / img.width
+                output_size = (max_width, max_height * aspect_ratio)
+            else:
+                aspect_ratio = img.width / img.height
+                output_size = (max_width * aspect_ratio, max_height)
+            img.thumbnail(output_size)
+            if img.height is not img.width:
+                width, height = img.size
+                left = (width - max_width) / 2
+                top = (height - max_height) / 2
+                right = (width + max_width) / 2
+                bottom = (height + max_height) / 2
+                cropped_img = img.crop((left, top, right, bottom))
+                cropped_img.save(self.image.path)
+        else:
+            img.save(self.image.path)
