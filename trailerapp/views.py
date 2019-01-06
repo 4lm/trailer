@@ -1,7 +1,9 @@
-from django.contrib.auth.decorators import user_passes_test
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required, user_passes_test
 from django.db import IntegrityError
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.views.generic.list import ListView
+from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
 from .models import Film, Trailer
 from .services import get_data
 import datetime
@@ -67,3 +69,41 @@ def playing(request):
                             print(e)
                             pass
     return render(request, 'trailerapp/playing.html', {'films': films, 'page_title': 'Now Playing'})
+
+
+def register(request):
+    if request.method == 'POST':
+        form = UserRegisterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            messages.success(request, 'Account for {} has been created! You are now able to log in'.format(username))
+            return redirect('trailerapp:login')
+    else:
+        form = UserRegisterForm()
+    return render(request, 'trailerapp/register.html', {'form': form})
+
+
+@login_required
+def profile(request):
+    if request.method == 'POST':
+        u_form = UserUpdateForm(request.POST, instance=request.user)
+        p_form = ProfileUpdateForm(request.POST,
+                                   request.FILES,
+                                   instance=request.user.profile)
+        if u_form.is_valid() and p_form.is_valid():
+            u_form.save()
+            p_form.save()
+            messages.success(request, f'Your account has been updated!')
+            return redirect('trailerapp:profile')
+
+    else:
+        u_form = UserUpdateForm(instance=request.user)
+        p_form = ProfileUpdateForm(instance=request.user.profile)
+
+    context = {
+        'u_form': u_form,
+        'p_form': p_form
+    }
+
+    return render(request, 'trailerapp/profile.html', context)

@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/4lm/trailerpress#readme",
   "devDependencies": {
+    "is-in-viewport": "^3.0.4",
     "video.js": "^7.3.0",
     "videojs-youtube": "^2.6.0"
   }
