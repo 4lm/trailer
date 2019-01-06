@@ -125,3 +125,7 @@ API_KEY = config('API_KEY', default='')
 # TMDB API values
 LANGUAGE = config('LANGUAGE', default='')
 REGION = config('REGION', default='')
+
+# LOGIN
+LOGIN_REDIRECT_URL = 'trailerapp:film-list'
+LOGIN_URL = 'trailerapp:login'

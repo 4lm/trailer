@@ -1,5 +1,5 @@
 from django.contrib import messages
-from django.contrib.auth.decorators import user_passes_test
+from django.contrib.auth.decorators import login_required, user_passes_test
 from django.db import IntegrityError
 from django.shortcuts import redirect, render
 from django.views.generic.list import ListView
@@ -78,7 +78,12 @@ def register(request):
             form.save()
             username = form.cleaned_data.get('username')
             messages.success(request, 'Account for {} has been created! You are now able to log in'.format(username))
-            return redirect('trailerapp:film-list')
+            return redirect('trailerapp:login')
     else:
         form = UserRegisterForm()
     return render(request, 'trailerapp/register.html', {'form': form})
+
+
+@login_required
+def profile(request):
+    return render(request, 'trailerapp/profile.html')
