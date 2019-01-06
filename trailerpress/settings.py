@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'trailerapp.apps.TrailerappConfig',
     'bootstrap4',
+    'crispy_forms',
     'django_icons',
     'star_ratings',
     'django.contrib.admin',
@@ -124,3 +125,11 @@ API_KEY = config('API_KEY', default='')
 # TMDB API values
 LANGUAGE = config('LANGUAGE', default='')
 REGION = config('REGION', default='')
+
+# LOGIN
+LOGIN_REDIRECT_URL = 'trailerapp:film-list'
+LOGIN_URL = 'trailerapp:login'
+
+# MEDIA
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
