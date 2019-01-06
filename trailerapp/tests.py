@@ -4,8 +4,9 @@ from uuid import uuid4
 from django.test import Client, TestCase
 
 from trailerpress.settings import API_KEY, LANGUAGE, REGION
-from .models import Film, Genre, Trailer
-from .views import FilmIndexListView
+from .models import Film, Genre, Trailer, Profile
+from .views import FilmIndexListView, register, profile
+from django.contrib.auth.models import User
 
 
 class FilmModelTests(TestCase):
@@ -45,6 +46,19 @@ class GenreModelTests(TestCase):
         uuid = uuid4()
         test_genre = Genre(name=uuid)
         self.assertEqual(test_genre.__str__(), uuid)
+
+
+class ProfileModelTests(TestCase):
+    '''
+        Profile model tests.
+    '''
+
+    def test_str(self):
+        uuid = uuid4()
+        test_user = User(username=uuid)
+        test_profile = Profile()
+        test_profile.user = test_user
+        self.assertEqual(test_profile.__str__(), '{} Profile'.format(uuid))
 
 
 class FilmIndexListViewTests(TestCase):
@@ -90,3 +104,29 @@ class ServicesTests(TestCase):
     def test_get_data(self, mocked_get_data):
         a, l, p, r = API_KEY, LANGUAGE, 1, REGION
         self.assertEqual(mocked_get_data(a, l, p, r), 42)
+
+
+class RegisterViewTests(TestCase):
+    '''
+        Register view tests.
+    '''
+
+    def setUp(self):
+        self.client = Client()
+
+    def test_register_view(self):
+        response = self.client.get('/register/')
+        self.assertEqual(response.status_code, 200)
+
+
+class ProfileViewTests(TestCase):
+    '''
+        Profile view tests.
+    '''
+
+    def setUp(self):
+        self.client = Client()
+
+    def test_register_view(self):
+        response = self.client.get('/profile/')
+        self.assertEqual(response.status_code, 200)
