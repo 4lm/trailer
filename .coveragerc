@@ -4,6 +4,3 @@ omit =
     venv/*
     manage.py
 exclude_lines =
-    def get_data
-    def playing
-
