@@ -129,3 +129,7 @@ REGION = config('REGION', default='')
 # LOGIN
 LOGIN_REDIRECT_URL = 'trailerapp:film-list'
 LOGIN_URL = 'trailerapp:login'
+
+# MEDIA
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
