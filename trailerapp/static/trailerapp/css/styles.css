@@ -1,11 +1,15 @@
 body {
-    background: #fafafa;
+    background: #5c5c5c;
     color: #333333;
     margin-top: 5rem;
 }
 
+html {
+    background-color: #5c5c5c;
+}
+
 h1, h2, h3, h4, h5, h6 {
-    color: #444444;
+    color: #2d2d2d;
 }
 
 ul {
@@ -17,15 +21,11 @@ ul {
 }
 
 .content-section {
-    background: #ffffff;
+    background: #f9ffff;
     padding: 10px 20px;
     border: 1px solid #dddddd;
     border-radius: 3px;
     margin-bottom: 20px;
-}
-
-.film-item {
-    padding-bottom: 1rem;
 }
 
 .site-header .navbar-nav .nav-link {

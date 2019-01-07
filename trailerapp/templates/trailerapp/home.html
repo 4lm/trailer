@@ -9,7 +9,7 @@
 {% block content %}
     {% if films %}
         {% for film in films %}
-            <div id="tmdb-{{ film.tmdb_id }}" class="film-item">
+            <div id="tmdb-{{ film.tmdb_id }}" class="content-section">
                 <h3>{{ film.title }}</h3>
                 <p>
                     <small>{{ film.release_date }}</small>
