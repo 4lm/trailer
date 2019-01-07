@@ -36,15 +36,21 @@
                     <a class="nav-item nav-link" href="#">About</a>
                 </div>
                 <!-- Navbar Right Side -->
-                <div class="navbar-nav">
-                    {% if user.is_authenticated %}
-                        <a class="nav-item nav-link" href="{% url 'trailerapp:profile' %}"><img class="rounded-circle nav-profile-img" src="{{ user.profile.image.url }}"></a>
+                {% if user.is_authenticated %}
+                    <div class="navbar-nav">
+                        <a class="nav-item nav-link" href="{% url 'trailerapp:profile' %}">
+                            <img class="rounded-circle nav-profile-img" src="{{ user.profile.image.url }}">
+                        </a>
+                    </div>
+                    <div class="navbar-nav">
                         <a class="nav-item nav-link" href="{% url 'trailerapp:logout' %}">Logout</a>
-                    {% else %}
+                    </div>
+                {% else %}
+                    <div class="navbar-nav">
                         <a class="nav-item nav-link" href="{% url 'trailerapp:login' %}">Login</a>
                         <a class="nav-item nav-link" href="{% url 'trailerapp:register' %}">Register</a>
-                    {% endif %}
-                </div>
+                    </div>
+                {% endif %}
             </div>
         </div>
     </nav>
