@@ -127,7 +127,7 @@ LANGUAGE = config('LANGUAGE', default='')
 REGION = config('REGION', default='')
 
 # LOGIN
-LOGIN_REDIRECT_URL = 'trailerapp:film-list'
+LOGIN_REDIRECT_URL = 'trailerapp:home'
 LOGIN_URL = 'trailerapp:login'
 
 # MEDIA
