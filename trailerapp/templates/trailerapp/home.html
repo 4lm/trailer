@@ -27,6 +27,7 @@
                                 "fluid": true
                             }'
                 ></video>
+                {% if film.overview %}
                 <div>
                     <button class="btn btn-outline-dark" type="button" data-toggle="collapse"
                             data-target="#collapse-{{ film.tmdb_id }}"
@@ -34,12 +35,12 @@
                         Synopsis
                     </button>
                 </div>
-
                 <div class="collapse" id="collapse-{{ film.tmdb_id }}">
                     <div class="card card-body">
                         {{ film.overview }}
                     </div>
                 </div>
+                {% endif %}
                 <div>{% ratings film %}</div>
             </div>
         {% endfor %}
