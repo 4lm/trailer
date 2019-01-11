@@ -4,7 +4,8 @@ Django==2.1.4
 django-bootstrap4==0.0.7
 django-crispy-forms==1.7.2
 django-icons==0.2.1
-django-star-ratings==0.7.0
+django-model-utils==3.1.2
 Pillow==5.4.0
 python-decouple==3.1
 requests==2.21.0
+swapper==1.1.0
