@@ -14,7 +14,7 @@
         </div>
     {% endblock rating_count %}
     {% block rating_user %}
-        {% if user.is_authenticated and anonymous_ratings and read_only %}
+        {% if user.is_authenticated %}
             <div class="star-ratings-rating-user">
                 <small>{% trans 'You Rated: ' %} <span
                         class='star-ratings-rating-value'>{% if user_rating %}{{ user_rating.score }}{% else %}
