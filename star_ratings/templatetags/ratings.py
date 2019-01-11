@@ -10,6 +10,8 @@ from ..models import UserRating
 from .. import app_settings, get_star_ratings_rating_model
 from ..compat import is_authenticated
 
+from django.template.context_processors import csrf
+
 register = template.Library()
 
 
@@ -39,6 +41,7 @@ def ratings(context, item, icon_height=app_settings.STAR_RATINGS_STAR_HEIGHT, ic
     # template name can be passed as a template parameter
     template_name = template_name or context.get('star_ratings_template_name') or 'star_ratings/widget.html'
     return loader.get_template(template_name).render({
+        'csrf_token': csrf(request)['csrf_token'],
         'rating': rating,
         'request': request,
         'user': request.user,
