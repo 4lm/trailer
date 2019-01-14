@@ -52,14 +52,16 @@
             </div>
         {% endfor %}
         {% if is_paginated %}
+            <div class="buttons col-12 text-center">
             {% if page_obj.has_previous %}
-                <a class="btn btn-dark"
+                <a class="btn btn-dark btn-lg col-5"
                    href="?page={{ page_obj.previous_page_number }}">{% icon 'step-backward' %}</a>
             {% endif %}
             {% if page_obj.has_next %}
-                <a class="btn btn-dark"
+                <a class="btn btn-dark btn-lg col-5"
                    href="?page={{ page_obj.next_page_number }}">{% icon 'step-forward' %}</a>
             {% endif %}
+            </div>
         {% endif %}
     {% else %}
         <p>No films found.</p>
