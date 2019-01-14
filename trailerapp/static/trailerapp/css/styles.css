@@ -42,16 +42,15 @@ ul {
 }
 
 .profile-img {
-    height: 125px;
-    width: 125px;
+    height: 128px;
+    width: 128px;
     margin-right: 20px;
     margin-bottom: 16px;
 }
 
 .nav-profile-img {
-    height: 32px;
-    width: 32px;
-    margin-right: 5px;
+    height: 48px;
+    width: 48px;
 }
 
 .profile-heading {
