@@ -2,16 +2,14 @@
 
 Django app for watching the latest trailers.
 
-[This project is in early stages]
-
-master branch: [![Build Status](https://travis-ci.com/4lm/trailerpress.svg?branch=master)](https://travis-ci.com/4lm/trailerpress) [![Coverage Status](https://coveralls.io/repos/github/4lm/trailerpress/badge.svg?branch=master)](https://coveralls.io/github/4lm/trailerpress?branch=master) \
-develop branch: [![Build Status](https://travis-ci.com/4lm/trailerpress.svg?branch=develop)](https://travis-ci.com/4lm/trailerpress) [![Coverage Status](https://coveralls.io/repos/github/4lm/trailerpress/badge.svg?branch=develop)](https://coveralls.io/github/4lm/trailerpress?branch=develop)
+Branch master: [![Build Status](https://travis-ci.com/4lm/trailerpress.svg?branch=master)](https://travis-ci.com/4lm/trailerpress) \
+Branch develop: [![Build Status](https://travis-ci.com/4lm/trailerpress.svg?branch=develop)](https://travis-ci.com/4lm/trailerpress)
 
 ## Installation
 
 [This installation manual was tested with a GNU/Linux operating system (Ubuntu 18.04) and might be adjusted for usage with other operating systems]
 
-- First you need Git, Python (>= 3.6) with Virtualenv and Pip installed. If you are under Linux/Mac this should be a no-brainer, if you use Windows and you don't have a Git, Python, Virtualenv and Pip workflow yet, please read this [tutorial](http://timmyreilly.azurewebsites.net/python-pip-virtualenv-installation-on-windows/) for Pip and Virtualenv installation/usage and visit this [link](https://git-scm.com/download/win) do download/install Git.
+- First you need Git, Python (>= 3.6) with Virtualenv and Pip installed. If you are under Linux/Mac this should be a no-brainer, if you use Windows and you don't have a Git, Python, Virtualenv and Pip workflow yet, please read this [tutorial](http://timmyreilly.azurewebsites.net/python-pip-virtualenv-installation-on-windows/) for Pip and Virtualenv installation/usage and visit this [link](https://git-scm.com/download/win) to download/install Git.
 - If not already downloaded/installed, download/install Git, Python (>= 3.6), Pip (normally comes with Python) and Virtualenv
 - Open the console (aka terminal, shell) on your computer
 - Create a project directory in your terminal
