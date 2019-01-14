@@ -11,9 +11,7 @@
         {% for film in films %}
             <div id="tmdb-{{ film.tmdb_id }}" class="content-section">
                 <h3>{{ film.title }}</h3>
-                <p>
-                    <small>Kinostart: {{ film.release_date.date }}</small>
-                </p>
+                <p>Kinostart: {{ film.release_date.date }}</p>
                 <video
                         id="yt-{{ film.trailer_set.last.site_key }}"
                         class="video-js vjs-default-skin vjs-big-play-centered"
