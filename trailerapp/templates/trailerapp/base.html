@@ -33,13 +33,8 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarToggle">
-                <div class="navbar-nav mr-auto">
-                    <a class="nav-item nav-link" href="{% url 'trailerapp:home' %}">Home</a>
-                    <a class="nav-item nav-link" href="#">About</a>
-                </div>
-                <!-- Navbar Right Side -->
                 {% if user.is_authenticated %}
-                    <div class="navbar-nav">
+                    <div class="navbar-nav ml-auto">
                         <a class="nav-item nav-link" href="{% url 'trailerapp:profile' %}">
                             <img class="rounded-circle nav-profile-img" src="{{ user.profile.image.url }}">
                         </a>
@@ -48,7 +43,7 @@
                         <a class="nav-item nav-link" href="{% url 'trailerapp:logout' %}">Logout</a>
                     </div>
                 {% else %}
-                    <div class="navbar-nav">
+                    <div class="navbar-nav ml-auto">
                         <a class="nav-item nav-link" href="{% url 'trailerapp:login' %}">Login</a>
                         <a class="nav-item nav-link" href="{% url 'trailerapp:register' %}">Register</a>
                     </div>
