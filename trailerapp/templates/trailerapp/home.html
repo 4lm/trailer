@@ -26,6 +26,9 @@
                                 }],
                                 "fluid": true
                             }'
+                        {% if film.backdrop_path %}
+                        poster="https://image.tmdb.org/t/p/w780/{{ film.backdrop_path }}"
+                        {% endif %}
                 ></video>
                 {% if film.overview %}
                 <div>
