@@ -12,6 +12,7 @@ urlpatterns = [
     path('playing/', views.playing, name='playing'),
     path('profile/', views.profile, name='profile'),
     path('register/', views.register, name='register'),
+    path('about/', views.about, name='about'),
 ]
 
 if settings.DEBUG:

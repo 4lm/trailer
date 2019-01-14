@@ -37,6 +37,9 @@
             <div class="collapse navbar-collapse" id="navbarToggle">
                 {% if user.is_authenticated %}
                     <div class="navbar-nav ml-auto">
+                        <a class="nav-item nav-link" href="{% url 'trailerapp:about' %}">Über uns</a>
+                    </div>
+                    <div class="navbar-nav">
                         <a class="nav-item nav-link" href="{% url 'trailerapp:profile' %}">
                             <img class="rounded-circle nav-profile-img" src="{{ user.profile.image.url }}">
                         </a>
@@ -46,6 +49,7 @@
                     </div>
                 {% else %}
                     <div class="navbar-nav ml-auto">
+                        <a class="nav-item nav-link" href="{% url 'trailerapp:about' %}">Über uns</a>
                         <a class="nav-item nav-link" href="{% url 'trailerapp:login' %}">Einloggen</a>
                         <a class="nav-item nav-link" href="{% url 'trailerapp:register' %}">Registrieren</a>
                     </div>

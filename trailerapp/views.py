@@ -84,6 +84,10 @@ def register(request):
     return render(request, 'trailerapp/register.html', {'form': form})
 
 
+def about(request):
+    return render(request, 'trailerapp/about.html')
+
+
 @login_required
 def profile(request):
     if request.method == 'POST':
