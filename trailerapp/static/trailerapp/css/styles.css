@@ -2,6 +2,7 @@ body {
     background: #5c5c5c;
     color: #333333;
     margin-top: 6rem;
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
 html {
@@ -10,6 +11,7 @@ html {
 
 h1, h2, h3, h4, h5, h6 {
     color: #2d2d2d;
+    font-family: 'Roboto', sans-serif;
 }
 
 ul {
