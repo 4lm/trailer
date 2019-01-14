@@ -1,8 +1,11 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
+    <link type="image/x-icon" rel="shortcut icon" href="{% static 'trailerapp/favicon.ico' %}">
     {# Load the tag library #}
     {% load bootstrap4 %}
     {# Load CSS and JavaScript #}
@@ -13,7 +16,8 @@
           integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
           crossorigin="anonymous"
     >
-    <link type="text/css" rel="stylesheet" href="{% static 'trailerapp/js/video-js.min.css' %}"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="{% static 'trailerapp/js/video-js.min.css' %}">
     <link type="text/css" rel="stylesheet" href="{% static 'star-ratings/css/star-ratings.css' %}">
     <link type="text/css" rel="stylesheet" href="{% static 'trailerapp/css/styles.css' %}">
     <title>
@@ -24,31 +28,30 @@
 <header class="site-header">
     <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
         <div class="container">
-            <a class="navbar-brand mr-4" href="{% url 'trailerapp:film-list' %}">TrailerPress</a>
+            <a class="navbar-brand" href="{% url 'trailerapp:home' %}">TrailerPress</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle"
                     aria-controls="navbarToggle"
                     aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarToggle">
-                <div class="navbar-nav mr-auto">
-                    <a class="nav-item nav-link" href="{% url 'trailerapp:film-list' %}">Home</a>
-                    <a class="nav-item nav-link" href="#">About</a>
-                </div>
-                <!-- Navbar Right Side -->
                 {% if user.is_authenticated %}
+                    <div class="navbar-nav ml-auto">
+                        <a class="nav-item nav-link" href="{% url 'trailerapp:about' %}">Über uns</a>
+                    </div>
                     <div class="navbar-nav">
                         <a class="nav-item nav-link" href="{% url 'trailerapp:profile' %}">
                             <img class="rounded-circle nav-profile-img" src="{{ user.profile.image.url }}">
                         </a>
                     </div>
                     <div class="navbar-nav">
-                        <a class="nav-item nav-link" href="{% url 'trailerapp:logout' %}">Logout</a>
+                        <a class="nav-item nav-link" href="{% url 'trailerapp:logout' %}">Ausloggen</a>
                     </div>
                 {% else %}
-                    <div class="navbar-nav">
-                        <a class="nav-item nav-link" href="{% url 'trailerapp:login' %}">Login</a>
-                        <a class="nav-item nav-link" href="{% url 'trailerapp:register' %}">Register</a>
+                    <div class="navbar-nav ml-auto">
+                        <a class="nav-item nav-link" href="{% url 'trailerapp:about' %}">Über uns</a>
+                        <a class="nav-item nav-link" href="{% url 'trailerapp:login' %}">Einloggen</a>
+                        <a class="nav-item nav-link" href="{% url 'trailerapp:register' %}">Registrieren</a>
                     </div>
                 {% endif %}
             </div>
@@ -57,7 +60,7 @@
 </header>
 <main role="main" class="container">
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-12 col-lg-10">
             {# Display django.contrib.messages as Bootstrap alerts #}
             {% bootstrap_messages %}
             {% block content %}{% endblock %}

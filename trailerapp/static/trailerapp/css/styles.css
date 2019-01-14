@@ -1,15 +1,21 @@
 body {
-    background: #5c5c5c;
-    color: #333333;
-    margin-top: 5rem;
+    background: #0f0f0f;
+    color: #cbd5db;
+    margin-top: 6rem;
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
 html {
-    background-color: #5c5c5c;
+    background-color: #0f0f0f;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    color: #2d2d2d;
+    color: #f9ffff;
+    font-family: 'Roboto', sans-serif;
+}
+
+h3 {
+    font-size: 2rem;
 }
 
 ul {
@@ -17,24 +23,58 @@ ul {
 }
 
 .bg-steel {
-    background-color: #2d2d2d;
+    background-color: #000000;
 }
 
 .content-section {
-    background: #f9ffff;
+    background: #1e1e1e;
     padding: 10px 20px;
-    border: 1px solid #dddddd;
+    border: 1px solid #000000;
     border-radius: 3px;
-    margin-bottom: 20px;
+    margin-bottom: 0.8rem;
+}
+
+.rating-and-synopsis-section {
+    margin-top: 0.8rem;
+}
+
+.synopsis-btn {
+    margin-top: 0.6rem;
+    margin-bottom: 0.4rem;
+}
+
+a.navbar-brand {
+    font-size: 2.5rem;
+}
+
+.navbar-dark .navbar-brand {
+    color: #cbd5db;
+}
+
+div.card.card-body {
+    background-color: #0f0f0f;
+    margin-top: 1rem;
+    margin-bottom: 0.4rem;
+}
+
+div.buttons {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
+}
+
+.site-header .navbar-nav .nav-link:hover {
+    color: #f9ffff;
 }
 
 .site-header .navbar-nav .nav-link {
     color: #cbd5db;
-        font-size: 1rem;
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
 }
 
 .site-header .navbar-nav .nav-link:hover {
-    color: #ffffff;
+    color: #f9ffff;
 }
 
 .site-header .navbar-nav .nav-link.active {
@@ -42,16 +82,15 @@ ul {
 }
 
 .profile-img {
-    height: 125px;
-    width: 125px;
+    height: 128px;
+    width: 128px;
     margin-right: 20px;
     margin-bottom: 16px;
 }
 
 .nav-profile-img {
-    height: 32px;
-    width: 32px;
-    margin-right: 5px;
+    height: 48px;
+    width: 48px;
 }
 
 .profile-heading {
