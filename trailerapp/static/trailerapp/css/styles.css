@@ -32,6 +32,11 @@ ul {
     border: 1px solid #000000;
     border-radius: 3px;
     margin-bottom: 0.8rem;
+
+}
+
+.rating-and-synopsis-section {
+    margin-top: 0.8rem;
 }
 
 a.navbar-brand {

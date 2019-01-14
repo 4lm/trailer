@@ -30,21 +30,27 @@
                         poster="https://image.tmdb.org/t/p/w780/{{ film.backdrop_path }}"
                         {% endif %}
                 ></video>
+                <div class="rating-and-synopsis-section">
+                    <span>{% ratings film %}</span>
+                    {% if film.overview %}
+                        <span>
+                            <button class="btn btn-dark float-right" type="button"
+                                    data-toggle="collapse"
+                                    data-target="#collapse-{{ film.tmdb_id }}"
+                                    aria-expanded="false"
+                                    aria-controls="collapse-{{ film.tmdb_id }}">
+                            Synopsis
+                            </button>
+                        </span>
+                    {% endif %}
+                </div>
                 {% if film.overview %}
-                <div>
-                    <button class="btn btn-dark" type="button" data-toggle="collapse"
-                            data-target="#collapse-{{ film.tmdb_id }}"
-                            aria-expanded="false" aria-controls="collapse-{{ film.tmdb_id }}">
-                        Synopsis
-                    </button>
-                </div>
-                <div class="collapse" id="collapse-{{ film.tmdb_id }}">
-                    <div class="card card-body">
-                        {{ film.overview }}
+                    <div class="collapse" id="collapse-{{ film.tmdb_id }}">
+                        <div class="card card-body">
+                            {{ film.overview }}
+                        </div>
                     </div>
-                </div>
                 {% endif %}
-                <div>{% ratings film %}</div>
             </div>
         {% endfor %}
         {% if is_paginated %}
