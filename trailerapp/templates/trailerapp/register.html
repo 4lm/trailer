@@ -6,17 +6,17 @@
             {% csrf_token %}
             <fieldset class="form-group">
                 <legend class="border-bottom mb-4">
-                    Join now, for rating films!
+                    Jetzt beitreten, um Filme zu bewerten!
                 </legend>
                 {{ form|crispy }}
             </fieldset>
             <div class="form-group">
-                <button class="btn btn-dark" type="submit">Sign Up</button>
+                <button class="btn btn-dark" type="submit">Beitreten</button>
             </div>
         </form>
         <div class="border-top pt-3">
             <small class="text-muted">
-                Already Have an Account? <a class="ml-2" href="#">Sign In</a>
+                Sie haben bereits ein Nutzerkonto? <a class="ml-2" href="{% url 'trailerapp:login' %}">Hier einloggen.</a>
             </small>
         </div>
     </div>
