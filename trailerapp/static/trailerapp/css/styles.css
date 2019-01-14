@@ -1,17 +1,21 @@
 body {
-    background: #5c5c5c;
-    color: #333333;
+    background: #2d2d2d;
+    color: #cbd5db;
     margin-top: 6rem;
     font-family: 'Roboto Condensed', sans-serif;
 }
 
 html {
-    background-color: #5c5c5c;
+    background-color: #2d2d2d;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    color: #2d2d2d;
+    color: #f9ffff;
     font-family: 'Roboto', sans-serif;
+}
+
+h3 {
+    font-size: 2rem;
 }
 
 ul {
@@ -19,22 +23,28 @@ ul {
 }
 
 .bg-steel {
-    background-color: #2d2d2d;
+    background-color: #141414;
 }
 
 .content-section {
-    background: #f9ffff;
+    background: #5c5c5c;
     padding: 10px 20px;
-    border: 1px solid #dddddd;
+    border: 1px solid #141414;
     border-radius: 3px;
     margin-bottom: 0.8rem;
 }
 
 a.navbar-brand {
-    color: #cbd5db;
     font-size: 2.5rem;
 }
 
+.navbar-dark .navbar-brand {
+    color: #cbd5db;
+}
+
+.site-header .navbar-nav .nav-link:hover {
+    color: #f9ffff;
+}
 
 .site-header .navbar-nav .nav-link {
     color: #cbd5db;
@@ -42,7 +52,7 @@ a.navbar-brand {
 }
 
 .site-header .navbar-nav .nav-link:hover {
-    color: #ffffff;
+    color: #f9ffff;
 }
 
 .site-header .navbar-nav .nav-link.active {
