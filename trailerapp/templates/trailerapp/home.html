@@ -31,15 +31,15 @@
                 <div class="rating-and-synopsis-section">
                     <span>{% ratings film %}</span>
                     {% if film.overview %}
-                        <span>
-                            <button class="btn btn-dark float-right" type="button"
+                        <div class="text-right synopsis-btn">
+                            <button class="btn btn-dark" type="button"
                                     data-toggle="collapse"
                                     data-target="#collapse-{{ film.tmdb_id }}"
                                     aria-expanded="false"
                                     aria-controls="collapse-{{ film.tmdb_id }}">
                             Synopsis
                             </button>
-                        </span>
+                        </div>
                     {% endif %}
                 </div>
                 {% if film.overview %}

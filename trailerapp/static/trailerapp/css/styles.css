@@ -38,6 +38,11 @@ ul {
     margin-top: 0.8rem;
 }
 
+.synopsis-btn {
+    margin-top: 0.6rem;
+    margin-bottom: 0.4rem;
+}
+
 a.navbar-brand {
     font-size: 2.5rem;
 }
@@ -48,7 +53,7 @@ a.navbar-brand {
 
 div.card.card-body {
     background-color: #0f0f0f;
-    margin-top: 0.8rem;
+    margin-top: 1rem;
     margin-bottom: 0.4rem;
 }
 
