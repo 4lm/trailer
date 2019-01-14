@@ -5,3 +5,5 @@ cp -v node_modules/video.js/dist/video.min.js trailerapp/static/trailerapp/js/
 cp -v node_modules/video.js/dist/video.min.js trailerapp/static/trailerapp/js/
 cp -v node_modules/is-in-viewport/lib/isInViewport.min.js trailerapp/static/trailerapp/js/
 cp -v node_modules/is-in-viewport/lib/isInViewport.min.js.map trailerapp/static/trailerapp/js/
+rm -rfv star_ratings/*
+cp -rv lib/django-star-ratings/star_ratings/* star_ratings/

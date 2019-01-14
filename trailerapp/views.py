@@ -31,7 +31,8 @@ def playing(request):
         language = LANGUAGE
         page = 1
         region = REGION
-        films['results'] = get_data(api_key, language, page, region)
+        url = 'https://api.themoviedb.org/3/movie/now_playing'
+        films['results'] = get_data(url, api_key, language, page, region)
         for film_result in films['results']:
             if len(film_result['videos_results']) is not 0:
                 film = Film()
@@ -71,6 +72,104 @@ def playing(request):
     return render(request, 'trailerapp/playing.html', {'films': films, 'page_title': 'Now Playing'})
 
 
+@user_passes_test(lambda u: u.is_superuser)
+def playing(request):
+    films = {}
+    if request.GET.get('get-btn'):
+        api_key = API_KEY
+        language = LANGUAGE
+        page = 1
+        region = REGION
+        url = 'https://api.themoviedb.org/3/movie/now_playing'
+        films['results'] = get_data(url, api_key, language, page, region)
+        for film_result in films['results']:
+            if len(film_result['videos_results']) is not 0:
+                film = Film()
+                film.title = film_result['title']
+                film.original_title = film_result['original_title']
+                film.language = language
+                film.original_language = film_result['original_language']
+                film.region = region
+                film.overview = film_result['overview']
+                film.release_date = film_result['release_date']
+                film.tmdb_id = film_result['id']
+                film.backdrop_path = film_result['backdrop_path']
+                film.vote_average = 0
+                film.vote_count = 0
+                try:
+                    film.save()
+                except IntegrityError as e:
+                    print(e)
+                    pass
+                for video_result in film_result['videos_results']:
+                    if video_result['type'] is 'Trailer' or 'Teaser':
+                        trailer = Trailer()
+                        trailer.title = video_result['name']
+                        trailer.film = Film.objects.get(tmdb_id=film_result['id'])
+                        trailer.tmdb_id = video_result['id']
+                        trailer.language = video_result['iso_639_1']
+                        trailer.region = video_result['iso_3166_1']
+                        trailer.site = video_result['site']
+                        trailer.site_key = video_result['key']
+                        trailer.type = video_result['type']
+                        trailer.date_added = datetime.datetime.now()
+                        try:
+                            trailer.save()
+                        except IntegrityError as e:
+                            print(e)
+                            pass
+    return render(request, 'trailerapp/playing.html', {'films': films, 'page_title': 'Now Playing'})
+
+
+@user_passes_test(lambda u: u.is_superuser)
+def upcoming(request):
+    films = {}
+    if request.GET.get('get-btn'):
+        api_key = API_KEY
+        language = LANGUAGE
+        page = 1
+        region = REGION
+        url = 'https://api.themoviedb.org/3/movie/upcoming'
+        films['results'] = get_data(url, api_key, language, page, region)
+        for film_result in films['results']:
+            if len(film_result['videos_results']) is not 0:
+                film = Film()
+                film.title = film_result['title']
+                film.original_title = film_result['original_title']
+                film.language = language
+                film.original_language = film_result['original_language']
+                film.region = region
+                film.overview = film_result['overview']
+                film.release_date = film_result['release_date']
+                film.tmdb_id = film_result['id']
+                film.backdrop_path = film_result['backdrop_path']
+                film.vote_average = 0
+                film.vote_count = 0
+                try:
+                    film.save()
+                except IntegrityError as e:
+                    print(e)
+                    pass
+                for video_result in film_result['videos_results']:
+                    if video_result['type'] is 'Trailer' or 'Teaser':
+                        trailer = Trailer()
+                        trailer.title = video_result['name']
+                        trailer.film = Film.objects.get(tmdb_id=film_result['id'])
+                        trailer.tmdb_id = video_result['id']
+                        trailer.language = video_result['iso_639_1']
+                        trailer.region = video_result['iso_3166_1']
+                        trailer.site = video_result['site']
+                        trailer.site_key = video_result['key']
+                        trailer.type = video_result['type']
+                        trailer.date_added = datetime.datetime.now()
+                        try:
+                            trailer.save()
+                        except IntegrityError as e:
+                            print(e)
+                            pass
+    return render(request, 'trailerapp/upcoming.html', {'films': films, 'page_title': 'Upcoming'})
+
+
 def register(request):
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
@@ -82,6 +181,10 @@ def register(request):
     else:
         form = UserRegisterForm()
     return render(request, 'trailerapp/register.html', {'form': form})
+
+
+def about(request):
+    return render(request, 'trailerapp/about.html')
 
 
 @login_required

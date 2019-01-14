@@ -20,10 +20,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'p(!x$h@o4+918t8t1p(_l+x($=z^^mjn1jd@f1pex@(o863ch@'
+SECRET_KEY = config('SECRET_KEY', default='remove-in-production-settings-py-b89d-5b88f3caba32')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', cast=bool, default=False)
 
 ALLOWED_HOSTS = []
 
@@ -104,9 +104,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'de-DE'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Berlin'
 
 USE_I18N = True
 
@@ -127,9 +127,20 @@ LANGUAGE = config('LANGUAGE', default='')
 REGION = config('REGION', default='')
 
 # LOGIN
-LOGIN_REDIRECT_URL = 'trailerapp:film-list'
+LOGIN_REDIRECT_URL = 'trailerapp:home'
 LOGIN_URL = 'trailerapp:login'
 
 # MEDIA
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+# CRISPY FORMS
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+# EMAIL
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = config('EMAIL_USER', default='')
+EMAIL_HOST_PASSWORD = config('EMAIL_PASS', default='')

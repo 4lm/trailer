@@ -1,8 +1,7 @@
 import requests
 
 
-def get_data(api_key: str, language: str, page: int, region: str):
-    url = 'https://api.themoviedb.org/3/movie/now_playing'
+def get_data(url: str, api_key: str, language: str, page: int, region: str):
     params = {'api_key': api_key, 'language': language, 'page': page, 'region': region}
     r = requests.get(url, params=params)
     data = r.json()

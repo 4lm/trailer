@@ -60,7 +60,7 @@ class Profile(models.Model):
 
     __repr__ = __str__
 
-    def save(self):
+    def save(self, force_insert=False, force_update=False, using=None):
         super().save()
 
         img = Image.open(self.image.path)
