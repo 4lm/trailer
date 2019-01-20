@@ -25,7 +25,7 @@ SECRET_KEY = config('SECRET_KEY', default='remove-in-production-settings-py-b89d
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', cast=bool, default=False)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', '192.168.1.33']
 
 # Application definition
 
