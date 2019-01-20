@@ -2,10 +2,15 @@
 
 Django app for watching the latest trailers.
 
+Notice:
+
+- As of today, the UI of this app is in German language. 
+- In order for this app to work you need an api key from ["The Movie database"](https://www.themoviedb.org/faq/api).
+
 Branch master: [![Build Status](https://travis-ci.com/4lm/trailerpress.svg?branch=master)](https://travis-ci.com/4lm/trailerpress) \
 Branch develop: [![Build Status](https://travis-ci.com/4lm/trailerpress.svg?branch=develop)](https://travis-ci.com/4lm/trailerpress)
 
-## Installation
+## Installation Dev Environment
 
 [This installation manual was tested with a GNU/Linux operating system (Ubuntu 18.04) and might be adjusted for usage with other operating systems]
 
@@ -39,7 +44,23 @@ pip install -r requirements.txt
 python manage.py migrate
 python manage.py loaddata initial_data.json
 ```
+- Create a file named .env (Python decouple lib) and put it in the application root directory and fill in following constants:  
+```
+API_KEY=[https://www.themoviedb.org/faq/api]
+LANGUAGE=de
+PAGE=1
+REGION=DE
+EMAIL_USER=[Your email address for the email system of the app]
+EMAIL_PASS=[Your email address password ]
+SECRET_KEY=[Choose a secure secret key]
+DEBUG=True [only for testing, choose False in production]
+```
+- Create an admin account:
+```
+python manage.py createsuperuser
+```
 - Start the development server:
 ```
 python manage.py runserver
 ```
+- Go to 127.0.0.1:8000 and log in as admin, then go to 127.0.0.1:8000/get-films and populate db with films.
