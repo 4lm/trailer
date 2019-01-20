@@ -1,7 +1,7 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.shortcuts import redirect, render
-from django.views.generic.list import ListView
+from django.views.generic import ListView, DetailView
 from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
 from .models import Film
 from .services import save_data
@@ -19,6 +19,16 @@ class FilmIndexListView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['page_title'] = 'TrailerPress'
+        return context
+
+
+class FilmDetailView(DetailView):
+    model = Film
+    context_object_name = 'film'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['page_title'] = 'TrailerPress - Filmansicht'
         return context
 
 
@@ -44,7 +54,8 @@ def register(request):
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
-            messages.success(request, 'Benutzerkonto für {} wurde erstellt! Sie können sich nun einloggen'.format(username))
+            messages.success(request,
+                             'Benutzerkonto für {} wurde erstellt! Sie können sich nun einloggen'.format(username))
             return redirect('trailerapp:login')
     else:
         form = UserRegisterForm()

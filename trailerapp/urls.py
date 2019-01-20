@@ -13,6 +13,7 @@ urlpatterns = [
     path('profile/', views.profile, name='profile'),
     path('register/', views.register, name='register'),
     path('about/', views.about, name='about'),
+    path('film/<int:pk>/', views.FilmDetailView.as_view(), name='film-detail'),
 ]
 
 if settings.DEBUG:

@@ -27,7 +27,7 @@
         </div>
         {% for rating in ratings %}
             <div class="content-section">
-                <h4>{{ rating.rating }}</h4>
+                <h4><a href="{% url 'trailerapp:film-detail' rating.rating.object_id %}">{{ rating.rating }}</a></h4>
                 Ihre Bewertung: {{ rating.score }}
             </div>
         {% endfor %}
