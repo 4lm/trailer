@@ -1,6 +1,6 @@
 import requests
 import datetime
-from .models import Film, Trailer
+from .models import Film, Trailer, Genre
 from django.db import IntegrityError
 
 
@@ -44,11 +44,20 @@ def save_data(url: str, api_key: str, language: str, page: int, region: str):
             film.release_date = film_result['release_date']
             film.tmdb_id = film_result['id']
             film.backdrop_path = film_result['backdrop_path']
+            film.poster_path = film_result['poster_path']
             film.vote_average = 0
             film.vote_count = 0
             try:
                 film.save()
             except IntegrityError as e:
+                print(e)
+                pass
+            try:
+                genre_ids = film_result['genre_ids']
+                for genre_id in genre_ids:
+                    genre_by_id = Genre.objects.get(tmdb_id=genre_id)
+                    film.genre.add(genre_by_id)
+            except ValueError as e:
                 print(e)
                 pass
             for video_result in film_result['videos_results']:
