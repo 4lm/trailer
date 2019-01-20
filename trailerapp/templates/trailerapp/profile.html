@@ -21,4 +21,14 @@
             </div>
         </form>
     </div>
+    {% if ratings %}
+        <div>
+            <h3>Ihre Filmbewertungen</h3>
+        </div>
+        {% for rating in ratings %}
+            <a href="{% url 'trailerapp:film-detail' rating.rating.object_id %}">
+                <div class="content-section"><h4>{{ rating.rating }}</h4>Ihre Bewertung: {{ rating.score }}</div>
+            </a>
+        {% endfor %}
+    {% endif %}
 {% endblock content %}

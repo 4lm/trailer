@@ -1,14 +1,16 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.shortcuts import redirect, render
-from django.views.generic.list import ListView
+from django.views.generic import ListView, DetailView
 from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
-from .models import Film
+from .models import Film, Genre
 from .services import save_data
 from trailerpress.settings import API_KEY, LANGUAGE, REGION
+from star_ratings.models import UserRating
+from itertools import chain
 
 
-class FilmIndexListView(ListView):
+class FilmListView(ListView):
     model = Film
     template_name = 'trailerapp/home.html'
     context_object_name = 'films'
@@ -18,6 +20,37 @@ class FilmIndexListView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['page_title'] = 'TrailerPress'
+        return context
+
+
+class FilmDetailView(DetailView):
+    model = Film
+    context_object_name = 'film'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['page_title'] = 'TrailerPress - Filmansicht'
+        return context
+
+
+def genre(request):
+    context = {
+        'page_title': 'TrailerPress - Genre',
+        'genres': list(set(chain.from_iterable({i.genre.all() for i in Film.objects.all() if i.genre}))),
+    }
+    return render(request, 'trailerapp/genre.html', context)
+
+
+class GenreFilmListView(FilmListView):
+    template_name = 'trailerapp/genre_list.html'
+
+    def get_queryset(self):
+        films = Film.objects.filter(genre__tmdb_id__contains=self.kwargs['pk']).order_by('-release_date')
+        return films
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['genre'] = Genre.objects.get(tmdb_id=self.kwargs['pk'])
         return context
 
 
@@ -43,7 +76,8 @@ def register(request):
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
-            messages.success(request, 'Account for {} has been created! You are now able to log in'.format(username))
+            messages.success(request,
+                             'Benutzerkonto für {} wurde erstellt! Sie können sich nun einloggen'.format(username))
             return redirect('trailerapp:login')
     else:
         form = UserRegisterForm()
@@ -64,7 +98,7 @@ def profile(request):
         if u_form.is_valid() and p_form.is_valid():
             u_form.save()
             p_form.save()
-            messages.success(request, f'Your account has been updated!')
+            messages.success(request, f'Ihr Benutzerkonto wurde aktualisiert!')
             return redirect('trailerapp:profile')
 
     else:
@@ -73,7 +107,8 @@ def profile(request):
 
     context = {
         'u_form': u_form,
-        'p_form': p_form
+        'p_form': p_form,
+        'ratings': UserRating.objects.filter(user=request.user)
     }
 
     return render(request, 'trailerapp/profile.html', context)

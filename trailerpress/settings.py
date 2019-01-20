@@ -144,3 +144,8 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = config('EMAIL_USER', default='')
 EMAIL_HOST_PASSWORD = config('EMAIL_PASS', default='')
+
+# Fixtures
+FIXTURE_DIRS = (
+    os.path.join(BASE_DIR, 'trailerapp', 'fixtures', 'initial_data.json'),
+)
