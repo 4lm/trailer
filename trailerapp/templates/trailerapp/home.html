@@ -11,7 +11,11 @@
         {% for film in films %}
             <div id="tmdb-{{ film.tmdb_id }}" class="content-section">
                 <h3>{{ film.title }}</h3>
-                <p>Kinostart: {{ film.release_date.date }}</p>
+                <p>Kinostart: {{ film.release_date.date }}
+                    {% if film.genre.all %}
+                        | Genre: {{ film.genre.all|join:', ' }}
+                    {% endif %}
+                </p>
                 <video
                         id="yt-{{ film.trailer_set.last.site_key }}"
                         class="video-js vjs-default-skin vjs-big-play-centered"
