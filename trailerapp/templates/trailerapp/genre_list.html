@@ -1,0 +1,74 @@
+{% extends 'trailerapp/base.html' %}
+{% load icons %}
+{% load ratings %}
+
+{% block title %}
+    {{ page_title }}
+{% endblock %}
+
+{% block content %}
+    {% if films %}
+        <div class="content-section"><h3>Filmgenre: {{ genre.name }}</h3></div>
+        {% for film in films %}
+            <div id="tmdb-{{ film.tmdb_id }}" class="content-section">
+                <h3>{{ film.title }}</h3>
+                <p>Kinostart: {{ film.release_date.date }}
+                    {% if film.genre.all %}
+                        | Genre: {{ film.genre.all|join:', ' }}
+                    {% endif %}
+                </p>
+                <video
+                        id="yt-{{ film.trailer_set.last.site_key }}"
+                        class="video-js vjs-default-skin vjs-big-play-centered"
+                        controls
+                        data-setup='{
+                                "techOrder": ["youtube"],
+                                "sources": [{
+                                    "type": "video/youtube",
+                                    "src": "https://www.youtube.com/embed/{{ film.trailer_set.last.site_key }}"
+                                }],
+                                "fluid": true
+                            }'
+                        {% if film.backdrop_path %}
+                        poster="https://image.tmdb.org/t/p/w780/{{ film.backdrop_path }}"
+                        {% endif %}
+                ></video>
+                <div class="rating-and-synopsis-section">
+                    <span>{% ratings film %}</span>
+                    {% if film.overview %}
+                        <div class="text-right synopsis-btn">
+                            <button class="btn btn-dark" type="button"
+                                    data-toggle="collapse"
+                                    data-target="#collapse-{{ film.tmdb_id }}"
+                                    aria-expanded="false"
+                                    aria-controls="collapse-{{ film.tmdb_id }}">
+                            Synopsis
+                            </button>
+                        </div>
+                    {% endif %}
+                </div>
+                {% if film.overview %}
+                    <div class="collapse" id="collapse-{{ film.tmdb_id }}">
+                        <div class="card card-body">
+                            {{ film.overview }}
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+        {% if is_paginated %}
+            <div class="buttons col-12 text-center">
+            {% if page_obj.has_previous %}
+                <a class="btn btn-dark btn-lg col-5"
+                   href="?page={{ page_obj.previous_page_number }}">{% icon 'step-backward' %}</a>
+            {% endif %}
+            {% if page_obj.has_next %}
+                <a class="btn btn-dark btn-lg col-5"
+                   href="?page={{ page_obj.next_page_number }}">{% icon 'step-forward' %}</a>
+            {% endif %}
+            </div>
+        {% endif %}
+    {% else %}
+        <p>No films found.</p>
+    {% endif %}
+{% endblock %}

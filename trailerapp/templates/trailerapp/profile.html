@@ -23,7 +23,7 @@
     </div>
     {% if ratings %}
         <div>
-            <h2>Ihre Filmbewertungen</h2>
+            <h3>Ihre Filmbewertungen</h3>
         </div>
         {% for rating in ratings %}
             <a href="{% url 'trailerapp:film-detail' rating.rating.object_id %}">

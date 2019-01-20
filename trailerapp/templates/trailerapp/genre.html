@@ -1,0 +1,18 @@
+{% extends 'trailerapp/base.html' %}
+{% load icons %}
+{% load ratings %}
+
+{% block title %}
+    {{ page_title }}
+{% endblock %}
+
+{% block content %}
+    {% if genres %}
+        <h3>Suche nach Genre:</h3>
+        {% for genre in genres %}
+                <a href="{% url 'trailerapp:genre-list' genre.tmdb_id %}"><div class="content-section"><h4>{{ genre }}</h4></div></a>
+        {% endfor %}
+    {% else %}
+        <p>No Genres found.</p>
+    {% endif %}
+{% endblock %}

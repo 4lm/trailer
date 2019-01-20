@@ -6,7 +6,7 @@ from django.contrib.auth import views as auth_views
 
 app_name = 'trailerapp'
 urlpatterns = [
-    path('', views.FilmIndexListView.as_view(), name='home'),
+    path('', views.FilmListView.as_view(), name='home'),
     path('login/', auth_views.LoginView.as_view(template_name='trailerapp/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='trailerapp/logout.html'), name='logout'),
     path('get-films/', views.get_films, name='get-films'),
@@ -14,6 +14,9 @@ urlpatterns = [
     path('register/', views.register, name='register'),
     path('about/', views.about, name='about'),
     path('film/<int:pk>/', views.FilmDetailView.as_view(), name='film-detail'),
+    path('genre/', views.genre, name='genre'),
+    path('genre-list/<int:pk>/', views.GenreFilmListView.as_view(), name='genre-list'),
+
 ]
 
 if settings.DEBUG:
