@@ -44,7 +44,7 @@ def register(request):
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
-            messages.success(request, 'Account for {} has been created! You are now able to log in'.format(username))
+            messages.success(request, 'Benutzerkonto für {} wurde erstellt! Sie können sich nun einloggen'.format(username))
             return redirect('trailerapp:login')
     else:
         form = UserRegisterForm()
@@ -65,7 +65,7 @@ def profile(request):
         if u_form.is_valid() and p_form.is_valid():
             u_form.save()
             p_form.save()
-            messages.success(request, f'Your account has been updated!')
+            messages.success(request, f'Ihr Benutzerkonto wurde aktualisiert!')
             return redirect('trailerapp:profile')
 
     else:
