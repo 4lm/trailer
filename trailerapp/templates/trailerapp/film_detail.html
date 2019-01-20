@@ -1,0 +1,11 @@
+{% extends 'trailerapp/base.html' %}
+{% load icons %}
+{% load ratings %}
+
+{% block title %}
+    {{ page_title }}
+{% endblock %}
+
+{% block content %}
+    {% include 'trailerapp/film-entity.html' %}
+{% endblock %}

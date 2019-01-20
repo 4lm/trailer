@@ -1,4 +1,5 @@
 {% load static %}
+{% load icons %}
 <!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -37,6 +38,7 @@
             <div class="collapse navbar-collapse" id="navbarToggle">
                 {% if user.is_authenticated %}
                     <div class="navbar-nav ml-auto">
+                        <a class="nav-item nav-link" href="{% url 'trailerapp:genre' %}">{% icon 'search' %}</a>
                         <a class="nav-item nav-link" href="{% url 'trailerapp:about' %}">Über uns</a>
                     </div>
                     <div class="navbar-nav">
@@ -49,6 +51,7 @@
                     </div>
                 {% else %}
                     <div class="navbar-nav ml-auto">
+                        <a class="nav-item nav-link" href="{% url 'trailerapp:genre' %}">{% icon 'search' %}</a>
                         <a class="nav-item nav-link" href="{% url 'trailerapp:about' %}">Über uns</a>
                         <a class="nav-item nav-link" href="{% url 'trailerapp:login' %}">Einloggen</a>
                         <a class="nav-item nav-link" href="{% url 'trailerapp:register' %}">Registrieren</a>

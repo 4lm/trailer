@@ -5,7 +5,7 @@ from django.test import Client, TestCase
 
 from trailerpress.settings import API_KEY, LANGUAGE, REGION
 from .models import Film, Genre, Trailer, Profile
-from .views import FilmIndexListView, register, profile
+from .views import FilmListView
 from django.contrib.auth.models import User
 
 
@@ -63,7 +63,7 @@ class ProfileModelTests(TestCase):
 
 class FilmIndexListViewTests(TestCase):
     '''
-        FilmIndexListView tests.
+        FilmListView tests.
     '''
 
     def setUp(self):
@@ -75,23 +75,23 @@ class FilmIndexListViewTests(TestCase):
         self.assertEqual(response.context['page_title'], 'TrailerPress')
 
     def test_film_index_model(self):
-        film_index = FilmIndexListView()
+        film_index = FilmListView()
         self.assertEqual(film_index.model, Film)
 
     def test_film_index_template_name(self):
-        film_index = FilmIndexListView()
+        film_index = FilmListView()
         self.assertEqual(film_index.template_name, 'trailerapp/home.html')
 
     def test_film_index_context_object_name(self):
-        film_index = FilmIndexListView()
+        film_index = FilmListView()
         self.assertEqual(film_index.context_object_name, 'films')
 
     def test_film_index_context_pagination(self):
-        film_index = FilmIndexListView()
+        film_index = FilmListView()
         self.assertEqual(film_index.paginate_by, 5)
 
     def test_film_index_ordering(self):
-        film_index = FilmIndexListView()
+        film_index = FilmListView()
         self.assertEqual(film_index.ordering[0], '-release_date')
 
 
