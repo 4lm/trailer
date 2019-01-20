@@ -21,4 +21,15 @@
             </div>
         </form>
     </div>
+    {% if ratings %}
+        <div>
+            <h2>Ihre Filmbewertungen</h2>
+        </div>
+        {% for rating in ratings %}
+            <div class="content-section">
+                <h4>{{ rating.rating }}</h4>
+                Ihre Bewertung: {{ rating.score }}
+            </div>
+        {% endfor %}
+    {% endif %}
 {% endblock content %}

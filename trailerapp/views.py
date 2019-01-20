@@ -6,6 +6,7 @@ from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
 from .models import Film
 from .services import save_data
 from trailerpress.settings import API_KEY, LANGUAGE, REGION
+from star_ratings.models import UserRating
 
 
 class FilmIndexListView(ListView):
@@ -73,7 +74,8 @@ def profile(request):
 
     context = {
         'u_form': u_form,
-        'p_form': p_form
+        'p_form': p_form,
+        'ratings': UserRating.objects.filter(user=request.user)
     }
 
     return render(request, 'trailerapp/profile.html', context)
