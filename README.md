@@ -37,6 +37,7 @@ pip install -r requirements.txt
 - Migrate project:
 ```
 python manage.py migrate
+python manage.py loaddata initial_data.json
 ```
 - Start the development server:
 ```
