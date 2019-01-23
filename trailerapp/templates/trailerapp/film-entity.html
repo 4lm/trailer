@@ -1,7 +1,7 @@
 {% load ratings %}
 <div id="tmdb-{{ film.tmdb_id }}" class="content-section">
     <h3>{{ film.title }}</h3>
-    <p>Kinostart: {{ film.release_date.date }}
+    <p>Kinostart: {{ film.release_date|date }}
         {% if film.genre.all %}
             | Genre:
             {% for genre in film.genre.all %}
