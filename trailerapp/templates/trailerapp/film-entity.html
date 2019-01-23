@@ -27,7 +27,7 @@
             {% endif %}
     ></video>
     <div class="rating-and-synopsis-section">
-        <span>{% ratings film %}</span>
+        {% ratings film %}
         {% if film.overview %}
             <div class="text-right synopsis-btn">
                 <button class="btn btn-dark" type="button"
