@@ -74,6 +74,14 @@
         </div>
     </div>
 </main>
+<footer class="container">
+    <div class="row">
+        <div class="col-md-12 col-lg-10 text-center">
+            <a class="col-5" href="{% url 'trailerapp:imprint' %}">Impressum</a>
+            <a class="col-5" href="{% url 'trailerapp:data-protection' %}">Datenschutzerklärung</a>
+        </div>
+    </div>
+</footer>
 {% bootstrap_javascript jquery='full' %}
 <script src="{% static 'cookielaw/js/cookielaw.js' %}"></script>
 <script src="{% static 'star-ratings/js/dist/star-ratings.min.js' %}"></script>
