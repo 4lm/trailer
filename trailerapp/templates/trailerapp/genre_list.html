@@ -8,7 +8,7 @@
     {% if films %}
         <div class="content-section"><h3>Filmgenre: {{ genre.name }}</h3></div>
         {% for film in films %}
-            {% include 'trailerapp/film-entity.html' %}
+            {% include 'trailerapp/film_entity.html' %}
         {% endfor %}
         {% include 'trailerapp/pagination.html' %}
     {% else %}
