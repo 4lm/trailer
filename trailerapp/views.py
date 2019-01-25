@@ -15,7 +15,7 @@ class FilmListView(ListView):
     template_name = 'trailerapp/home.html'
     context_object_name = 'films'
     paginate_by = 5
-    ordering = ['-release_date']
+    ordering = ['title']
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -45,7 +45,7 @@ class GenreFilmListView(FilmListView):
     template_name = 'trailerapp/genre_list.html'
 
     def get_queryset(self):
-        films = Film.objects.filter(genre__tmdb_id__contains=self.kwargs['pk']).order_by('-release_date')
+        films = Film.objects.filter(genre__tmdb_id__contains=self.kwargs['pk']).order_by('title')
         return films
 
     def get_context_data(self, **kwargs):
