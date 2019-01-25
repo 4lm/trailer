@@ -21,7 +21,7 @@
             Karl-Marx-Str. 282<br>
             12057 Berlin<br>
             E-Mailadresse: a.michaltsis@gmail.com<br>
-            Link zum Impressum: <a class="col-5" href="{% url 'trailerapp:imprint' %}">{% url 'trailerapp:imprint' %}</a>
+            Link zum Impressum: <a class="col-5" href="{% url 'trailerapp:imprint' %}">{{ request.get_host }}{% url 'trailerapp:imprint' %}</a>
         </div>
         </p>
         <h3 id="dsg-general-datatype">Arten der verarbeiteten Daten</h3>
