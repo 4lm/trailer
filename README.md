@@ -4,7 +4,12 @@ TrailerPress is a platform for watching the lastest trailers of playing and upco
 
 A running demo instance of TrailerPress can be visited [here](https://trailerpress.michaltsis.net/).
 
-Notice (for development):
+Notice (for development and production):
+
+- This project includes custom imprint and data law notice templates with personalized data from the maintainer of this project. Remove them or use your own personalized data, if you use/fork/clone this project. You can find them in:
+
+  - trailerapp/templates/trailerapp/imprint.html
+  - data_protection.html
 
 - As of today, the UI of this app is in German language. 
 - In order for this app to work locally, you need an API key from [The Movie Database](https://www.themoviedb.org/faq/api).
@@ -52,6 +57,10 @@ In the users profile page the user can upload a custom user image. For processin
 ### django-bootstrap4 and django-icons
 
 This project uses Bootstrap 4 and FontAwesome icons, which are integrated via template tags of the two Django apps [django-bootstrap4](https://pypi.org/project/django-bootstrap4/) and [django-icons](https://pypi.org/project/django-icons/). 
+
+### django-cookie-law
+
+For the cookie law notice this project uses [django-cookie-law](https://pypi.org/project/django-cookie-law/).
 
 ### django-crispy-forms
 
