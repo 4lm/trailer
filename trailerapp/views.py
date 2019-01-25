@@ -35,7 +35,7 @@ class FilmDetailView(DetailView):
 
 def genre(request):
     context = {
-        'page_title': 'TrailerPress - Genre',
+        'page_title': 'TrailerPress - Suche nach Genre',
         'genres': list(set(chain.from_iterable({i.genre.all() for i in Film.objects.all() if i.genre}))),
     }
     return render(request, 'trailerapp/genre.html', context)
@@ -51,6 +51,7 @@ class GenreFilmListView(FilmListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['genre'] = Genre.objects.get(tmdb_id=self.kwargs['pk'])
+        context['page_title'] = 'TrailerPress - Genre'
         return context
 
 
@@ -67,7 +68,7 @@ def get_films(request):
     if request.GET.get('upcoming'):
         url = 'https://api.themoviedb.org/3/movie/upcoming'
         films = save_data(url, api_key, language, page, region)
-    return render(request, 'trailerapp/get_films.html', {'films': films, 'page_title': 'Get Films'})
+    return render(request, 'trailerapp/get_films.html', {'films': films, 'page_title': 'TrailerPress - Get Films'})
 
 
 def register(request):
@@ -81,11 +82,11 @@ def register(request):
             return redirect('trailerapp:login')
     else:
         form = UserRegisterForm()
-    return render(request, 'trailerapp/register.html', {'form': form})
+    return render(request, 'trailerapp/register.html', {'form': form, 'page_title': 'TrailerPress - Registrierung'})
 
 
 def about(request):
-    return render(request, 'trailerapp/about.html')
+    return render(request, 'trailerapp/about.html', {'page_title': 'TrailerPress - Über uns'})
 
 
 @login_required
@@ -108,7 +109,8 @@ def profile(request):
     context = {
         'u_form': u_form,
         'p_form': p_form,
-        'ratings': UserRating.objects.filter(user=request.user)
+        'ratings': UserRating.objects.filter(user=request.user),
+        'page_title': 'TrailerPress - Profil'
     }
 
     return render(request, 'trailerapp/profile.html', context)
