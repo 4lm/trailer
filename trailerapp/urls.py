@@ -17,6 +17,7 @@ urlpatterns = [
     path('genre/', views.genre, name='genre'),
     path('genre-list/<int:pk>/', views.GenreFilmListView.as_view(), name='genre-list'),
     path('data-protection/', views.data_protection, name='data-protection'),
+    path('imprint/', views.imprint, name='imprint'),
 ]
 
 if settings.DEBUG:

@@ -93,6 +93,10 @@ def data_protection(request):
     return render(request, 'trailerapp/data_protection.html', {'page_title': 'TrailerPress - Datenschutzerklärung'})
 
 
+def imprint(request):
+    return render(request, 'trailerapp/imprint.html', {'page_title': 'TrailerPress - Impressum'})
+
+
 @login_required
 def profile(request):
     if request.method == 'POST':
