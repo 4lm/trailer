@@ -9,7 +9,7 @@ Notice (for development):
 - As of today, the UI of this app is in German language. 
 - In order for this app to work locally, you need an API key from [The Movie Database](https://www.themoviedb.org/faq/api).
 
-Branch master : [![Build Status](https://travis-ci.com/4lm/trailerpress.svg?branch=master)](https://travis-ci.com/4lm/trailerpress) \
+Branch master: [![Build Status](https://travis-ci.com/4lm/trailerpress.svg?branch=master)](https://travis-ci.com/4lm/trailerpress) \
 Branch develop: [![Build Status](https://travis-ci.com/4lm/trailerpress.svg?branch=develop)](https://travis-ci.com/4lm/trailerpress)
 
 ## Use of Build-in Functionality
@@ -43,6 +43,11 @@ This project makes use if Pip and Virtualenv. All requirements for the virtual e
 ### django-star-ratings
 
 For rating, this project uses the django app named [django-star-ratings](https://github.com/wildfish/django-star-ratings). The app is not installed in the virtual environment, but instead can be found locally in the repo of this project (/star_ratings), because the app had a bug and missed a language feature it had to be used as a fork locally in this repository. Two pull request for [bug](https://github.com/wildfish/django-star-ratings/pull/154) and [language feature](https://github.com/wildfish/django-star-ratings/pull/155) have been filed in the original django-star-ratings GitHub repository. If they are going to be accepted, this project will switch from the use of the forked django-star-ratings app to the original app (via virtual environment) and remove it from the local code base of this project.
+
+### Pillow
+
+In the users profile page the user can upload a custom user image. For processing the images this project uses the Python image library named [Pillow](https://pypi.org/project/Pillow/).
+
     
 ### django-bootstrap4 and django-icons
 
