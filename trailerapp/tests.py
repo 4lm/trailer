@@ -92,7 +92,7 @@ class FilmIndexListViewTests(TestCase):
 
     def test_film_index_ordering(self):
         film_index = FilmListView()
-        self.assertEqual(film_index.ordering[0], '-release_date')
+        self.assertEqual(film_index.ordering[0], 'title')
 
 
 class ServicesTests(TestCase):
