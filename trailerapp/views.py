@@ -89,6 +89,10 @@ def about(request):
     return render(request, 'trailerapp/about.html', {'page_title': 'TrailerPress - Über uns'})
 
 
+def data_protection(request):
+    return render(request, 'trailerapp/data_protection.html', {'page_title': 'TrailerPress - Datenschutzerklärung'})
+
+
 @login_required
 def profile(request):
     if request.method == 'POST':

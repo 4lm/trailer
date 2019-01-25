@@ -16,7 +16,7 @@ urlpatterns = [
     path('film/<int:pk>/', views.FilmDetailView.as_view(), name='film-detail'),
     path('genre/', views.genre, name='genre'),
     path('genre-list/<int:pk>/', views.GenreFilmListView.as_view(), name='genre-list'),
-
+    path('data-protection/', views.data_protection, name='data-protection'),
 ]
 
 if settings.DEBUG:
