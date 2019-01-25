@@ -2,6 +2,7 @@ coverage==4.5.2
 coveralls==1.5.1
 Django==2.1.5
 django-bootstrap4==0.0.7
+django-cookie-law==2.0.1
 django-crispy-forms==1.7.2
 django-icons==0.2.1
 django-model-utils==3.1.2

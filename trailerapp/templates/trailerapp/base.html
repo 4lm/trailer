@@ -1,5 +1,6 @@
 {% load static %}
 {% load icons %}
+{% load cookielaw_tags %}
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -65,13 +66,24 @@
 <main class="container">
     <div class="row">
         <div class="col-md-12 col-lg-10">
+            {% cookielaw_banner %}
+            <div class="close-cookies"></div>
             {# Display django.contrib.messages as Bootstrap alerts #}
             {% bootstrap_messages %}
             {% block content %}{% endblock %}
         </div>
     </div>
 </main>
+<footer class="container">
+    <div class="row">
+        <div class="col-md-12 col-lg-10 text-center">
+            <a class="col-5" href="{% url 'trailerapp:imprint' %}">Impressum</a>
+            <a class="col-5" href="{% url 'trailerapp:data-protection' %}">Datenschutzerklärung</a>
+        </div>
+    </div>
+</footer>
 {% bootstrap_javascript jquery='full' %}
+<script src="{% static 'cookielaw/js/cookielaw.js' %}"></script>
 <script src="{% static 'star-ratings/js/dist/star-ratings.min.js' %}"></script>
 <script src="{% static 'trailerapp/js/video.min.js' %}"></script>
 <script src="{% static 'trailerapp/js/Youtube.min.js' %}"></script>

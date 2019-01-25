@@ -29,3 +29,11 @@ $(window).scroll(function () {
         }
     })
 });
+
+
+// Remove cookie notice after accepting it
+$(document).ready(function () {
+   $('.close-cookies').click(function () {
+       $(this).parent().hide();
+   });
+});

@@ -1,14 +1,14 @@
 {% extends 'trailerapp/base.html' %}
 
 {% block title %}
-    {{ page_title }}
+    {{ page_title }} {{ genre.name }}
 {% endblock %}
 
 {% block content %}
     {% if films %}
         <div class="content-section"><h3>Filmgenre: {{ genre.name }}</h3></div>
         {% for film in films %}
-            {% include 'trailerapp/film-entity.html' %}
+            {% include 'trailerapp/film_entity.html' %}
         {% endfor %}
         {% include 'trailerapp/pagination.html' %}
     {% else %}

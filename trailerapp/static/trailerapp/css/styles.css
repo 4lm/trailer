@@ -22,6 +22,10 @@ ul {
     margin: 0;
 }
 
+footer {
+    padding: 2rem;
+}
+
 .bg-steel {
     background-color: #000000;
 }
