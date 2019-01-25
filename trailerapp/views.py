@@ -77,7 +77,7 @@ def register(request):
             form.save()
             username = form.cleaned_data.get('username')
             messages.success(request,
-                             'Benutzerkonto für {} wurde erstellt! Sie können sich nun einloggen'.format(username))
+                             'Benutzerkonto für {} wurde erstellt! Sie können sich nun einloggen.'.format(username))
             return redirect('trailerapp:login')
     else:
         form = UserRegisterForm()
