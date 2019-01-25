@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
-from PIL import Image
+from PIL import ExifTags, Image
 
 
 class Genre(models.Model):
@@ -64,6 +64,24 @@ class Profile(models.Model):
         super().save()
 
         img = Image.open(self.image.path)
+
+        try:
+            for orientation in ExifTags.TAGS.keys():
+                if ExifTags.TAGS[orientation] == 'Orientation':
+                    break
+            exif = dict(img._getexif().items())
+
+            if exif[orientation] == 3:
+                img = img.rotate(180, expand=True)
+            elif exif[orientation] == 6:
+                img = img.rotate(270, expand=True)
+            elif exif[orientation] == 8:
+                img = img.rotate(90, expand=True)
+            img.save(self.image.path)
+        except (AttributeError, KeyError, IndexError):
+            # cases: image don't have getexif
+            pass
+
         max_width, max_height = 300, 300
 
         if img.height > max_height or img.width > max_width:
@@ -84,3 +102,5 @@ class Profile(models.Model):
                 cropped_img.save(self.image.path)
         else:
             img.save(self.image.path)
+
+        img.close()
