@@ -6,10 +6,10 @@ A running demo instance of TrailerPress can be visited [here](https://trailerpre
 
 Notice (for development and production):
 
-- This project includes custom imprint and data law notice templates with personalized data from the maintainer of this project. Remove them or use your own personalized data, if you use/fork/clone this project. You can find them in:
+- This project contains imprint and data law notice templates with personalized data from the maintainer of this project. Remove them or use your own personalized data, if you use/fork/clone this project. You can find them in:
 
   - trailerapp/templates/trailerapp/imprint.html
-  - data_protection.html
+  - trailerapp/templates/trailerapp/data_protection.html
 
 - As of today, the UI of this app is in German language. 
 - In order for this app to work locally, you need an API key from [The Movie Database](https://www.themoviedb.org/faq/api).
