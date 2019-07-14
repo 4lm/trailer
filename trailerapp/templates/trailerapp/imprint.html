@@ -1,28 +1,22 @@
 {% extends "trailerapp/base.html" %}
 
 {% block title %}
-    {{ page_title }}
+{{ page_title }}
 {% endblock %}
 
 {% block content %}
-    <div class="content-section">
-        <div class='impressum'>
-            <h4>Impressum</h4>
-            <p>Angaben gemäß § 5 TMG</p>
-            <p>Alexis Michaltsis <br>
-                Karl-Marx-Str. 282<br>
-                12057 Berlin <br>
-            </p>
-            <p><strong>Vertreten durch: </strong><br>
-                Alexis Michaltsis<br>
-            </p>
-            <p><strong>Kontakt:</strong> <br>
-                Telefon: 01578-4323299<br>
-                E-Mail: a.michaltsis@gmail.com</br></p>
-            <p><strong>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:</strong><br>
-                Alexis Michaltsis <br>
-                Karl-Marx-Str. 282<br>
-                12057 Berlin <br></p>
+<div class="content-section">
+    <div class='impressum'>
+        <h4>Impressum</h4>
+        <p>Angaben gemäß § 5 TMG</p>
+        <p>
+            TBD
+        </p>
+        <p><strong>Vertreten durch: </strong>
+            TBD
+        </p>
+        <p><strong>Kontakt:</strong>TBD</p>
+        <p><strong>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:</strong>TBD
             <p><strong>Haftungsausschluss: </strong><br><br><strong>Haftung für Inhalte</strong><br><br>
                 Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit
                 und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen. Als Diensteanbieter sind wir gemäß
@@ -49,7 +43,8 @@
                 Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte
                 Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem
                 auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei
-                Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.<br><br><strong>Datenschutz</strong><br><br>
+                Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend
+                entfernen.<br><br><strong>Datenschutz</strong><br><br>
                 Die Nutzung unserer Webseite ist in der Regel ohne Angabe personenbezogener Daten möglich. Soweit auf
                 unseren Seiten personenbezogene Daten (beispielsweise Name, Anschrift oder eMail-Adressen) erhoben
                 werden, erfolgt dies, soweit möglich, stets auf freiwilliger Basis. Diese Daten werden ohne Ihre
@@ -62,7 +57,8 @@
                 ausdrücklich widersprochen. Die Betreiber der Seiten behalten sich ausdrücklich rechtliche Schritte im
                 Falle der unverlangten Zusendung von Werbeinformationen, etwa durch Spam-Mails, vor.<br><br>
                 Link zur Datenschutzerklärung: <a class="col-5" href="{% url 'trailerapp:data-protection' %}">
-                    {{ request.get_host }}{% url 'trailerapp:data-protection' %}</a><br><br><strong>Google Analytics</strong><br><br>
+                    {{ request.get_host }}{% url 'trailerapp:data-protection' %}</a><br><br><strong>Google
+                    Analytics</strong><br><br>
                 Diese Website benutzt Google Analytics, einen Webanalysedienst der Google Inc. (''Google''). Google
                 Analytics verwendet sog. ''Cookies'', Textdateien, die auf Ihrem Computer gespeichert werden und die
                 eine Analyse der Benutzung der Website durch Sie ermöglicht. Die durch den Cookie erzeugten
@@ -99,7 +95,7 @@
                 erklären Sie sich mit der Bearbeitung der über Sie erhobenen Daten durch Google in der zuvor
                 beschriebenen Art und Weise und zu dem zuvor benannten Zweck einverstanden.</p><br>
             Website Impressum von <a href="https://www.impressum-generator.de">impressum-generator.de</a>
-        </div>
-
     </div>
+
+</div>
 {% endblock content %}
