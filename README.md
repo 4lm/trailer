@@ -1,8 +1,6 @@
 # TrailerPress
 
-TrailerPress is a platform for watching the lastest trailers of playing and upcoming films in German cinemas. The user can browse a catalog of trailers (also by genre) and can create an user account for rating the trailers and creating a history of rated trailers in the users profile page. TrailerPress is a demo project and was created as a student semester project by Alexis Michaltsis at the _Technische Hochschule Brandenburg - University of Applied Sciences_ under the supervision of Prof. Dr. Thomas Preuss. TrailerPress uses the Django web framework and for automated trailer data fetching the API of _The Movie Database_ (the trailer data is in following steps processed and saved to the local Django DB). TrailerPress is optimized to run on desktop, tablet and mobile. 
-
-A running demo instance of TrailerPress can be visited [here](https://trailerpress.michaltsis.net/).
+TrailerPress is a platform for watching the lastest trailers of playing and upcoming films in German cinemas. The user can browse a catalog of trailers (also by genre) and can create an user account for rating the trailers and creating a history of rated trailers in the users profile page. TrailerPress is a demo project and was created as a student semester project by Alexis Michaltsis at the _Technische Hochschule Brandenburg - University of Applied Sciences_ under the supervision of Prof. Dr. Thomas Preuss. TrailerPress uses the Django web framework and for automated trailer data fetching the API of _The Movie Database_ (the trailer data is in following steps processed and saved to the local Django DB). TrailerPress is optimized to run on desktop, tablet and mobile.
 
 Notice (for development and production):
 
